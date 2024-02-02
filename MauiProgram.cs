@@ -1,6 +1,9 @@
 ﻿using CommunityToolkit.Maui;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Maui.Controls.PlatformConfiguration;
+using Pizza.Services;
+using Pizza.ViewModel;
 
 namespace Pizza
 {
@@ -22,6 +25,10 @@ namespace Pizza
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");   
                 }).UseMauiCommunityToolkit();
+            builder.Services.AddTransient<MainPage>();
+            builder.Services.AddScoped<MonkeyServices>();
+            builder.Services.AddScoped<MonkeyViewModel>();
+           
 
 #if DEBUG
             builder.Logging.AddDebug();
