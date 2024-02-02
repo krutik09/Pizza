@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Pizza.MainPage"
+             Shell.NavBarIsVisible="False">
+    <ScrollView>
+        <VerticalStackLayout>
+            <Border StrokeShape="RoundRectangle 15" Margin="10" HeightRequest="150">
+                <Grid ColumnDefinitions="*,Auto" RowDefinitions="*,*,*" BackgroundColor="DarkGoldenrod">
+                    <Label Text="Best pizza offer" Grid.Row="0" Margin="5,10,0,0"></Label>
+                    <Label Text="Best pizza offer get your best pizza" Grid.Row="1"  Margin="5,2,0,0"></Label>
+                    <Button Text="Get it now" Grid.Row="2" BackgroundColor="LightGoldenrodYellow" TextColor="Black" WidthRequest="150" HeightRequest="35" CornerRadius="50" HorizontalOptions="Start" Margin="5,0,5,0"/>
+                    <Image Source="pizza.jpg" Grid.Column="1" Grid.RowSpan="3" Margin="10"/>
+                </Grid>
+            </Border>
+            <Border StrokeShape="RoundRectangle 15" StrokeThickness="4" Background="AliceBlue" >
+                <SearchBar Placeholder="Search" ></SearchBar>
+            </Border>
+            <HorizontalStackLayout  MaximumHeightRequest="200">
+                <Label Text="Popular items" HorizontalOptions="End"/>
+                <Label Text="view all" TextDecorations="Underline" HorizontalOptions="Start"/>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+        
+    </ScrollView>
+
+</ContentPage>
