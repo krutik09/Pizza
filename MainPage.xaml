@@ -5,10 +5,11 @@
              xmlns:model ="clr-namespace:Pizza.Model"
              xmlns:viewmodel="clr-namespace:Pizza.ViewModel"
               x:DataType="viewmodel:MonkeyViewModel"
+             BackgroundColor="LightGoldenrodYellow"
              Shell.NavBarIsVisible="False">
     <ScrollView>
         <VerticalStackLayout>
-            <Border StrokeShape="RoundRectangle 15" Margin="10" HeightRequest="150">
+            <Border StrokeShape="RoundRectangle 15" Margin="20" HeightRequest="150">
                 <Grid ColumnDefinitions="*,Auto" RowDefinitions="*,*,*" BackgroundColor="DarkGoldenrod">
                     <Label Text="Best pizza offer" Grid.Row="0" Margin="5,10,0,0"></Label>
                     <Label Text="Best pizza offer get your best pizza" Grid.Row="1"  Margin="5,2,0,0"></Label>
@@ -16,29 +17,71 @@
                     <Image Source="pizza.jpg" Grid.Column="1" Grid.RowSpan="3" Margin="10"/>
                 </Grid>
             </Border>
-            <Border StrokeShape="RoundRectangle 15" StrokeThickness="4" Background="AliceBlue" >
-                <SearchBar Placeholder="Search" ></SearchBar>
+            <Border
+                Margin="20,0,20,0"
+                StrokeShape="RoundRectangle 15" 
+                StrokeThickness="4" 
+                Background="Transparent" >
+                <SearchBar
+                    Placeholder="Search" ></SearchBar>
             </Border>
 
             <Grid ColumnDefinitions="*,*"  Margin="5,20,5,0">
-                <Label Text="Popular items" HorizontalOptions="Start" Grid.Column="0" FontSize="Body"/>
-                <Label Text="view all" TextDecorations="Underline" HorizontalOptions="End" Grid.Column="1"
-                           FontSize="Body"/>
+                <Label
+                    Margin="10"
+                    Text="Popular items" 
+                    HorizontalOptions="Start" 
+                    Grid.Column="0" 
+                    FontSize="Body"/>
+                <Label
+                    Margin="10"
+                    Text="view all" 
+                    TextDecorations="Underline" 
+                    HorizontalOptions="End" 
+                    Grid.Column="1"
+                    FontSize="Body"/>
             </Grid>
             <!--<Button Text="Get" Command="{Binding GetMonkeyCommand}"/>-->
-            <CollectionView ItemsSource="{Binding Monkeys}" Background="AliceBlue">
-                
-                <CollectionView.ItemTemplate >
-                    <DataTemplate x:DataType="model:Monkey">
-                        
-                        <Border>
-                            <Label Text="{Binding Namw}" FontSize="Header"/>
-                            
+            <FlexLayout
+                Wrap="Wrap"
+                Direction="Row"
+                BindableLayout.ItemsSource="{Binding Monkeys}">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate
+                        x:DataType="model:Monkey">
+                        <Border
+                            Margin="10,0,10,10"
+                            BackgroundColor="DarkGoldenrod"
+                            StrokeShape="RoundRectangle 25"
+                            FlexLayout.Basis="50%">
+                            <Grid
+                                RowDefinitions="Auto,Auto,Auto,Auto" >
+                                <Image 
+                                    Source="{Binding Image}"  
+                                    HorizontalOptions="Center" 
+                                    Margin="0,10,0,0" 
+                                    Grid.Row="0" 
+                                    MaximumHeightRequest="100" 
+                                    MaximumWidthRequest="100"/>
+                                <Label
+                                    FontAttributes="Bold"
+                                    Text="{Binding Name}" 
+                                    Grid.Row="1" 
+                                    HorizontalOptions="Center" />
+                                <Button
+                                    FontAttributes="Bold"
+                                    CornerRadius="20"
+                                    BackgroundColor="LightGoldenrodYellow"
+                                    TextColor="Black"
+                                    HeightRequest="40"
+                                    Margin="20,5,20,0"
+                                    Text="View More" 
+                                    Grid.Row="2" />
+                            </Grid>
                         </Border>
-                        
                     </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
+                </BindableLayout.ItemTemplate>
+            </FlexLayout>
         </VerticalStackLayout>
         
         
